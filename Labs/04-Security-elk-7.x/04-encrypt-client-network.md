@@ -77,13 +77,13 @@ EOT
 ##Password is elastic_data_1
 ```
 
-### On all nodes
+### On all nodes (Master as well as data nodes)
 ```
 sudo systemctl stop elasticsearch
 sudo systemctl start elasticsearch
 ```
 
-### Check Logs
+### Check Logs on all nodes
 ```
 tail -f /var/log/elasticsearch/cluster-1.log
 ```
@@ -91,7 +91,7 @@ tail -f /var/log/elasticsearch/cluster-1.log
 
 ## Open Kibana
 ```
-http://elk-vm-master.eastus.cloudapp.azure.com:5601/login?next=%2F
+http://<public-ip>:5601/login?next=%2F
 ```
 
 ## Credentials
