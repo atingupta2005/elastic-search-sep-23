@@ -22,11 +22,13 @@ sudo apt install elasticsearch -y
 ```
 
 
+
+# Run below commands only on master node
 ```
 sudo apt install kibana -y
 ```
 
-# Run below commands only on master node
+
 ```
 sudo systemctl enable kibana
 sudo systemctl start kibana

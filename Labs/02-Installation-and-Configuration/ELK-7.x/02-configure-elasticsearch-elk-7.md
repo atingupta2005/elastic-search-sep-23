@@ -71,6 +71,10 @@ curl -X GET "localhost:9200"
 curl localhost:9200/_cat/nodes?v
 ```
 
+### Sample output of the above command
+```
+10.0.0.6  54 34  0 0.00 0.01 0.01 mr        * master-2
+```
 
 ## Important Node:
  - Please make sure that the master node should be up and running before we start the data nodes
@@ -106,7 +110,7 @@ sudo sed 's/Xmx1g/Xmx2g/' /etc/elasticsearch/jvm.options
 ## On Data Node:
 ```
 node_name=data-2
-```
+
 
 ```
 cat <<EOT >> /etc/elasticsearch/elasticsearch.yml
