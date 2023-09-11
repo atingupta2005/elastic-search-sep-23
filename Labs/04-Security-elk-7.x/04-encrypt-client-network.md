@@ -26,6 +26,7 @@ EOT
 
 
 ### Data nodes
+#### Note: We need to change the data node name from data_1 to data_? as per the name of our data node
 ```
 sudo su -
 ```
@@ -37,6 +38,7 @@ xpack.security.http.ssl.keystore.path: data-1
 xpack.security.http.ssl.truststore.path: data-1
 EOT
 ```
+
 
 ```
 /usr/share/elasticsearch/bin/elasticsearch-keystore add xpack.security.http.ssl.keystore.secure_password

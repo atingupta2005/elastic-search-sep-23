@@ -1,4 +1,4 @@
-# Set the built-in user passwords
+# Set the built-in user passwords on Master Node
 ```
 sudo su
 ```

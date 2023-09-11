@@ -1,5 +1,6 @@
 # Create PKI
 ## On master node
+- Run below commands on linux terminal
 ```
 sudo su
 ```
@@ -34,26 +35,27 @@ chmod 640 /etc/elasticsearch/master-1
 ```
 
 ```
-chmod 640 /etc/elasticsearch/data-1
-```
-
-```
-chmod 640 /etc/elasticsearch/data-2
+chmod 640 /etc/elasticsearch/data-*
 ```
 
 ```
 ls -al /etc/elasticsearch/
 ```
 
+## Copy the generated certificates on each node one by one
+- First data node
 ```
-scp /etc/elasticsearch/data-1 atingupta2005@$data_1_ip_address:/tmp
-```
-
-```
-scp /etc/elasticsearch/data-2 atingupta2005@$data_2_ip_address:/tmp
+scp /etc/elasticsearch/data-1 esuser@$data_1_ip_address:/tmp
 ```
 
-## On each node
+- Second data node
+```
+scp /etc/elasticsearch/data-2 esuser@$data_2_ip_address:/tmp
+```
+
+### Node: Master node setup is now done
+
+## Run below commands on each data node
 ```
 sudo su
 cp /tmp/data* /etc/elasticsearch/

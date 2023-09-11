@@ -8,6 +8,7 @@
 ### Master nodes
 ```
 sudo su -
+sudo systemctl stop elasticsearch
 cat <<EOT >> /etc/elasticsearch/elasticsearch.yml
 xpack.security.enabled: true
 xpack.security.transport.ssl.enabled: true
