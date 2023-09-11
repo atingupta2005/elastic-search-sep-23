@@ -25,6 +25,33 @@ EOT
 ```
 
 
+### Configure kibana on Master node
+```
+cat <<EOT >> /etc/kibana/kibana.yml
+elasticsearch.hosts: ["https://localhost:9200"]
+elasticsearch.ssl.verificationMode: none
+EOT
+```
+
+```
+cat /etc/kibana/kibana.yml
+```
+
+```
+sudo systemctl stop kibana
+sudo systemctl start kibana
+```
+
+### Check Kibana Logs
+```
+sudo tail -f  /var/log/kibana/kibana.log
+```
+
+### Check ElasticSearch Logs
+```
+tail -f /var/log/elasticsearch/cluster-1.log
+```
+
 ### Data nodes
 #### Note: We need to change the data node name from data_1 to data_? as per the name of our data node
 ```
@@ -60,31 +87,6 @@ sudo systemctl start elasticsearch
 ```
 tail -f /var/log/elasticsearch/cluster-1.log
 ```
-
-### Configure kibana
-```
-cat <<EOT >> /etc/kibana/kibana.yml
-elasticsearch.hosts: ["https://localhost:9200"]
-elasticsearch.ssl.verificationMode: none
-EOT
-```
-
-cat /etc/kibana/kibana.yml
-
-```
-sudo systemctl stop kibana
-sudo systemctl start kibana
-```
-
-```
-sudo tail -f  /var/log/kibana/kibana.log
-```
-
-### Check Logs
-```
-tail -f /var/log/elasticsearch/cluster-1.log
-```
-
 
 
 ## Open Kibana
