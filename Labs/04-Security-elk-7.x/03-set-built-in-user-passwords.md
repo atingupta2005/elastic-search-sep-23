@@ -42,6 +42,7 @@ Password: remote_monitoring_user_566
 cat <<EOT >> /etc/kibana/kibana.yml
 elasticsearch.username: "kibana"
 elasticsearch.password: "kibana_566"
+server.host: 0.0.0.0
 EOT
 ```
 

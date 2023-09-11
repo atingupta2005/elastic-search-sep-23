@@ -66,7 +66,6 @@ tail -f /var/log/elasticsearch/cluster-1.log
 cat <<EOT >> /etc/kibana/kibana.yml
 elasticsearch.hosts: ["https://localhost:9200"]
 elasticsearch.ssl.verificationMode: none
-server.host: 0.0.0.0
 EOT
 ```
 
