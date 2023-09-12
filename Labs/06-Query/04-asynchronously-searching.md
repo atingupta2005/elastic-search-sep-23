@@ -39,9 +39,6 @@ GET _cat/indices?v
 GET _async_search/FmVUZlJKOHZyU2Z1QzFsUXd1UW9qMFEcTGZuNU5CVUxUZUtabWdicEVraFg5Zzo0NTAwMg==
 ```
 
-
-###Scroll through the results to confirm the log messages mention SSH.
-
 ### Delete the Asynchronous Search
 #### Use the async search ID to delete the request:
 ```
