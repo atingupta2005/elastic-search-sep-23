@@ -4,7 +4,7 @@ sudo systemctl stop logstash
 sudo systemctl disable logstash
 sudo systemctl disable kibana
 sudo systemctl disable elasticsearch
-sudo apt remove --purge elasticsearch kibana logstash metricbeat
+sudo apt remove --purge elasticsearch kibana logstash metricbeat -y
 sudo rm -rf /run/systemd/propagate/elasticsearch.service
 sudo rm -rf /etc/rc0.d/K01elasticsearch
 sudo rm -rf /etc/rc1.d/K01elasticsearch
