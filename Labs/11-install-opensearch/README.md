@@ -79,34 +79,14 @@ curl -X GET https://localhost:9200 -u 'admin:admin' --insecure
 ```
 
 ```
-wget https://artifacts.elastic.co/downloads/kibana/kibana-8.9.2-amd64.deb
-shasum -a 512 kibana-8.9.2-amd64.deb 
-sudo dpkg -i kibana-8.9.2-amd64.deb
-```
-
-
-```
-cat << EOF | sudo tee -a /etc/kibana/kibana.yml
-elasticsearch.username: "admin"
-elasticsearch.password: "admin"
-server.host: 0.0.0.0
-EOF
-```
-
-
-```
-cat << EOF | sudo tee -a /etc/kibana/kibana.yml
-elasticsearch.hosts: ["https://localhost:9200"]
-elasticsearch.ssl.verificationMode: none
-EOF
-```
-
-
-```
-cat /etc/kibana/kibana.yml
+https://artifacts.opensearch.org/releases/bundle/opensearch-dashboards/2.9.0/opensearch-dashboards-2.9.0-linux-x64.deb
+sudo dpkg -i opensearch-dashboards-2.9.0-linux-x64.deb
+sudo systemctl daemon-reload
+sudo systemctl enable opensearch-dashboards
+sudo systemctl start opensearch-dashboards
+sudo systemctl status opensearch-dashboards
 ```
 
 ```
-sudo systemctl enable kibana
-sudo systemctl start kibana
+ echo "server.host: 0.0.0.0" >> sudo vi /etc/opensearch-dashboards/opensearch_dashboards.yml
 ```
