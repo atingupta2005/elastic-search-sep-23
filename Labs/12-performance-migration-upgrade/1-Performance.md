@@ -59,18 +59,18 @@ GET index/_search
 }
 ```
 
-## Avoid scriptsedit
+## Avoid scripts
 - If possible, avoid using script-based sorting, scripts in aggregations, and the script_score query.
 
 
-## Replicas might help with throughput, but not alwaysedit
+## Replicas might help with throughput, but not always
 - In addition to improving resiliency, replicas can help improve throughput. For instance if you have a single-shard index and three nodes, you will need to set the number of replicas to 2 in order to have 3 copies of your shard in total so that all nodes are utilized.
 
 - Now imagine that you have a 2-shards index and two nodes. In one case, the number of replicas is 0, meaning that each node holds a single shard. In the second case the number of replicas is 1, meaning that each node has two shards. Which setup is going to perform best in terms of search performance? Usually, the setup that has fewer shards per node in total will perform better. The reason for that is that it gives a greater share of the available filesystem cache to each shard, and the filesystem cache is probably Elasticsearch’s number 1 performance factor. At the same time, beware that a setup that does not have replicas is subject to failure in case of a single node failure, so there is a trade-off between throughput and availability.
 
 - So what is the right number of replicas? If you have a cluster that has num_nodes nodes, num_primaries primary shards in total and if you want to be able to cope with max_failures node failures at once at most, then the right number of replicas for you is max(max_failures, ceil(num_nodes / num_primaries) - 1).
 
-## Tune your queries with the Search Profileredit
+## Tune your queries with the Search Profiler
 - The Profile API provides detailed information about how each component of your queries and aggregations impacts the time it takes to process the request.
 
 - The Search Profiler in Kibana makes it easy to navigate and analyze the profile results and give you insight into how to tune your queries to improve performance and reduce load.
@@ -278,11 +278,11 @@ GET index/_search
 }
 ```
 
-## Avoid scriptsedit
+## Avoid scripts
 - If possible, avoid using script-based sorting, scripts in aggregations, and the script_score query.
 
 
-## Replicas might help with throughput, but not alwaysedit
+## Replicas might help with throughput, but not always
 - In addition to improving resiliency, replicas can help improve throughput. For instance if you have a single-shard index and three nodes, you will need to set the number of replicas to 2 in order to have 3 copies of your shard in total so that all nodes are utilized.
 
 - Now imagine that you have a 2-shards index and two nodes. In one case, the number of replicas is 0, meaning that each node holds a single shard. In the second case the number of replicas is 1, meaning that each node has two shards. Which setup is going to perform best in terms of search performance? Usually, the setup that has fewer shards per node in total will perform better. The reason for that is that it gives a greater share of the available filesystem cache to each shard, and the filesystem cache is probably Elasticsearch’s number 1 performance factor. At the same time, beware that a setup that does not have replicas is subject to failure in case of a single node failure, so there is a trade-off between throughput and availability.
